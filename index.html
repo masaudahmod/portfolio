@@ -23,6 +23,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 
 <body>
@@ -120,19 +122,22 @@
           </li>
 
           <li class="social-item">
-            <a href="https://www.linkedin.com/in/masaudahmod/" target="_blank" rel="noopener noreferrer" class="social-link">
+            <a href="https://www.linkedin.com/in/masaudahmod/" target="_blank" rel="noopener noreferrer"
+              class="social-link">
               <ion-icon class="socials-icons" name="logo-linkedin"></ion-icon>
             </a>
           </li>
 
           <li class="social-item">
-            <a href="https://www.facebook.com/masaudahmod" target="_blank" rel="noopener noreferrer" class="social-link">
+            <a href="https://www.facebook.com/masaudahmod" target="_blank" rel="noopener noreferrer"
+              class="social-link">
               <ion-icon class="socials-icons" name="logo-facebook"></ion-icon>
             </a>
           </li>
 
           <li class="social-item">
-            <a href="https://www.instagram.com/masaudahmod" target="_blank" rel="noopener noreferrer" class="social-link">
+            <a href="https://www.instagram.com/masaudahmod" target="_blank" rel="noopener noreferrer"
+              class="social-link">
               <ion-icon class="socials-icons" name="logo-instagram"></ion-icon>
             </a>
           </li>
@@ -168,23 +173,38 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link active" data-nav-link>
+              <ion-icon name="person-outline"></ion-icon>
+              <span>About</span>
+            </button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
+            <button class="navbar-link" data-nav-link>
+              <ion-icon name="document-text-outline"></ion-icon>
+              <span>Resume</span>
+            </button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
+            <button class="navbar-link" data-nav-link>
+              <ion-icon name="briefcase-outline"></ion-icon>
+              <span>Portfolio</span>
+            </button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
+            <button class="navbar-link" data-nav-link>
+              <ion-icon name="newspaper-outline"></ion-icon>
+              <span>Blog</span>
+            </button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
+            <button class="navbar-link" data-nav-link>
+              <ion-icon name="mail-outline"></ion-icon>
+              <span>Contact</span>
+            </button>
           </li>
 
         </ul>
@@ -207,8 +227,14 @@
 
         <section class="about-text">
           <p>
-            A passionate and driven individual with a solid foundation in web development, ready to kickstart a
-            successful career in the field.
+            Full-Stack Web Developer with 2+ years of
+            experience building scalable, production
+            ready web applications using TypeScript,
+            JavaScript, React, Next.js, Node.js, Express.js,
+            PostgreSQL, and Prisma. Experienced in
+            developing LMS platforms, e commerce
+            systems, role-based access control,
+            inventory management, and microservicesbased applications.
           </p>
         </section>
 
@@ -334,7 +360,8 @@
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Higher Secondary Certificate — Shahjalal Jamia Islamia School & College</h4>
+              <h4 class="h4 timeline-item-title">Higher Secondary Certificate — Shahjalal Jamia Islamia School & College
+              </h4>
 
               <span>2021</span>
 
@@ -964,7 +991,7 @@
 
           <h3 class="h3 form-title">Contact Form</h3>
 
-          <form action="#" class="form" data-form>
+          <form class="form" id="contact-form" data-form>
 
             <div class="input-wrapper">
               <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
@@ -974,10 +1001,12 @@
 
             <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
+            <button class="form-btn" id="contact-submit-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
+
+            <p id="contact-status" class="form-status"></p>
 
           </form>
 

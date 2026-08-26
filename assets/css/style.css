@@ -492,7 +492,33 @@ main {
 
 .navbar-link.active { color: var(--orange-yellow-crayola); }
 
+.navbar-link ion-icon {
+  display: none;
+}
 
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .navbar-link span {
+    display: none;
+  }
+
+  .navbar-link ion-icon {
+    display: block;
+    font-size: 22px;
+  }
+
+  .navbar-list {
+    gap: 5px;
+    justify-content: space-around;
+  }
+
+  .navbar-link {
+    padding: 15px 12px;
+  }
+
+}
 
 
 
@@ -1884,4 +1910,69 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+}
+
+/* Contact form toast */
+.form-status {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+
+  min-width: 280px;
+  max-width: 400px;
+
+  padding: 14px 18px;
+  border-radius: 10px;
+
+  background: #222;
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+
+  z-index: 9999;
+
+  /* Hidden initially */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(120%);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Show toast */
+.form-status.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Success */
+.form-status.success {
+  background: #1f8f55;
+}
+
+/* Error */
+.form-status.error {
+  background: #c0392b;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .form-status {
+    top: 15px;
+    right: 15px;
+    left: 15px;
+
+    min-width: auto;
+    max-width: none;
+
+    text-align: center;
+  }
 }
