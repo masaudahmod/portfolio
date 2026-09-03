@@ -147,7 +147,8 @@ if (contactForm) {
       statusMessage.textContent = "";
 
       const response = await fetch(
-        "http://localhost:5002/api/v1/public/contact/create",
+        // "http://localhost:5002/api/v1/public/contact/create",
+        "https://masaud-ahmod.onrender.com/api/v1/public/contact/create",
         {
           method: "POST",
           headers: {
