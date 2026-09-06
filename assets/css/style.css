@@ -2157,7 +2157,7 @@ textarea.form-input::-webkit-resizer {
 }
 
 .blog-detail-content {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 /* Back Button */
@@ -2167,7 +2167,7 @@ textarea.form-input::-webkit-resizer {
   align-items: center;
   gap: 8px;
 
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 
   color: var(--orange-yellow-crayola);
 
@@ -2207,7 +2207,7 @@ textarea.form-input::-webkit-resizer {
 /* Blog Title */
 
 .blog-detail-title {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 
   color: var(--white-2);
 
@@ -2220,7 +2220,7 @@ textarea.form-input::-webkit-resizer {
 .blog-detail-banner {
   width: 100%;
 
-  margin: 0 0 25px;
+  margin: 0 0 15px;
 
   border-radius: 16px;
 
@@ -2239,7 +2239,7 @@ textarea.form-input::-webkit-resizer {
 /* Excerpt */
 
 .blog-detail-excerpt {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 
   color: var(--light-gray);
 
@@ -2305,7 +2305,7 @@ textarea.form-input::-webkit-resizer {
   max-width: 100%;
   height: auto;
 
-  margin: 25px auto;
+  margin: 15px auto;
 
   border-radius: 12px;
 }
@@ -2313,7 +2313,7 @@ textarea.form-input::-webkit-resizer {
 /* Blockquote */
 
 .blog-detail-body blockquote {
-  margin: 25px 0;
+  margin: 15px 0;
   padding: 15px 20px;
 
   border-left: 3px solid var(--orange-yellow-crayola);
@@ -2328,7 +2328,7 @@ textarea.form-input::-webkit-resizer {
 .blog-detail-body pre {
   overflow-x: auto;
 
-  margin: 25px 0;
+  margin: 15px 0;
   padding: 18px;
 
   border-radius: 10px;
