@@ -5,10 +5,10 @@
 // API CONFIG
 // ========================================
 
-const serverUrl =
-  "http://localhost:5002";
 // const serverUrl =
-//   "https://masaud-ahmod.onrender.com";
+//   "http://localhost:5002";
+const serverUrl =
+  "https://masaud-ahmod.onrender.com";
 
 const blogApiUrl =
   `${serverUrl}/api/v1/public/blogs`;

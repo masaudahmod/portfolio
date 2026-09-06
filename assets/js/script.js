@@ -199,8 +199,8 @@ if (contactForm) {
 // BLOG API
 // ========================================
 
-// const serverUrl = "https://masaud-ahmod.onrender.com";
-const serverUrl = "http://localhost:5002";
+const serverUrl = "https://masaud-ahmod.onrender.com";
+// const serverUrl = "http://localhost:5002";
 
 const blogApiUrl = `${serverUrl}/api/v1/public/blogs`;
 
