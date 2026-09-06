@@ -194,3 +194,194 @@ if (contactForm) {
     }
   });
 }
+
+// ========================================
+// BLOG API
+// ========================================
+
+// const serverUrl = "https://masaud-ahmod.onrender.com";
+const serverUrl = "http://localhost:5002";
+
+const blogApiUrl = `${serverUrl}/api/v1/public/blogs`;
+
+// ========================================
+// FETCH ALL BLOGS
+// ========================================
+
+const fetchBlogs = async () => {
+  try {
+    const response = await fetch(blogApiUrl);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    console.log("Fetched blogs:", data);
+
+    return data.data || [];
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
+
+    return [];
+  }
+};
+
+// ========================================
+// DATE FORMAT
+// ========================================
+
+const formatBlogDate = (date) => {
+  if (!date) return "";
+
+  return new Date(date).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+};
+
+const formatDateForTime = (date) => {
+  if (!date) return "";
+
+  return new Date(date).toISOString().split("T")[0];
+};
+
+// ========================================
+// RENDER BLOGS
+// ========================================
+
+const renderBlogs = (blogs) => {
+  const blogList = document.querySelector("#blog-posts-list");
+
+  if (!blogList) return;
+
+  blogList.innerHTML = "";
+
+  // No blogs
+
+  if (!blogs.length) {
+    blogList.innerHTML = `
+      <li class="blog-post-item">
+
+        <p class="blog-text">
+          No blog posts available at the moment.
+        </p>
+
+      </li>
+    `;
+
+    return;
+  }
+
+  // Render blogs
+
+  blogs.forEach((blog, index) => {
+    const blogItem = document.createElement("li");
+
+    blogItem.className = "blog-post-item";
+
+    const fallbackImage = `./assets/images/blog-${(index % 6) + 1}.jpg`;
+
+    blogItem.innerHTML = `
+
+      <a
+        href="blog.html?slug=${encodeURIComponent(blog.slug)}"
+      >
+
+        <figure class="blog-banner-box">
+
+          <img
+            src="${blog?.featuredImage?.url || fallbackImage}"
+            alt="${
+              blog?.featuredImage?.originalName || blog.title || "Blog post"
+            }"
+            loading="lazy"
+          >
+
+        </figure>
+
+
+        <div class="blog-content">
+
+          <div class="blog-meta">
+
+            <p class="blog-category">
+              ${blog?.category?.name || "Development"}
+            </p>
+
+            <span class="dot"></span>
+
+            <time
+              datetime="${formatDateForTime(
+                blog.publishedAt || blog.createdAt,
+              )}"
+            >
+              ${formatBlogDate(blog.publishedAt || blog.createdAt)}
+            </time>
+
+          </div>
+
+
+          <h3 class="h3 blog-item-title">
+            ${blog.title || "Untitled Blog"}
+          </h3>
+
+
+          <p class="blog-text">
+            ${blog.excerpt || ""}
+          </p>
+
+        </div>
+
+      </a>
+    `;
+
+    blogList.appendChild(blogItem);
+  });
+};
+
+// ========================================
+// LOAD BLOGS
+// ========================================
+
+const loadBlogs = async () => {
+  const blogs = await fetchBlogs();
+
+  renderBlogs(blogs);
+};
+
+document.addEventListener("DOMContentLoaded", loadBlogs);
+
+// ========================================
+// HANDLE URL HASH NAVIGATION
+// ========================================
+
+const activatePageFromHash = () => {
+  const hash = window.location.hash.replace("#", "");
+
+  if (!hash) return;
+
+  for (let i = 0; i < pages.length; i++) {
+    if (pages[i].dataset.page === hash) {
+      pages[i].classList.add("active");
+    } else {
+      pages[i].classList.remove("active");
+    }
+  }
+
+  for (let i = 0; i < navigationLinks.length; i++) {
+    const linkPage = navigationLinks[i]
+      .querySelector("span")
+      ?.innerText.toLowerCase();
+
+    if (linkPage === hash) {
+      navigationLinks[i].classList.add("active");
+    } else {
+      navigationLinks[i].classList.remove("active");
+    }
+  }
+};
+
+activatePageFromHash();
